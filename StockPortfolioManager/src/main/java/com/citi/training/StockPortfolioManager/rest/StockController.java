@@ -14,12 +14,12 @@ import java.util.Collection;
 public class StockController {
 
     @Autowired
-    private StockService movieService;
+    private StockService stockService;
 
 
     @GetMapping
-    public Collection<Stocks> getMovies() {
-        return movieService.getAllStocks();
+    public Collection<Stocks> getStocks() {
+        return stockService.getAllStocks();
     }
 
 }
