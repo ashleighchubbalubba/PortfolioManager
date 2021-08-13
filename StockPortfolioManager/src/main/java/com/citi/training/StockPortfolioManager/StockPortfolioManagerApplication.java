@@ -1,4 +1,4 @@
-package com.citi.training.StockPortfolioManager;
+package StockPortfolioManager.src.main.java.com.citi.training.StockPortfolioManager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
