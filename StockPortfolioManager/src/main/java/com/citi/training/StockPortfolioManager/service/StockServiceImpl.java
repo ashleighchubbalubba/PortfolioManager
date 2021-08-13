@@ -13,7 +13,7 @@ public class StockServiceImpl implements StockService {
     private StockRepository stockRepository;
 
     @Override
-    public Collection<Stocks> getAllStocks() {
+    public Collection<Stocks> getAllSymbols() {
         return stockRepository.findAll();
     }
 

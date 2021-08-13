@@ -6,80 +6,90 @@ import java.time.DateTimeException;
 import java.util.Date;
 
 @Entity
-@Table(name="bac_stocks")
+@Table(name="sandp")
 public class Stocks implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="Date")
-    private Date date;
+    @Column(name="Symbol")
+    private String symbol;
 
-    @Column(name="Open")
-    private float Open;
-    @Column(name="High")
-    private float High;
-    @Column(name="Low")
-    private float Low;
-    @Column(name="Close")
-    private float Close;
-    @Column(name="Adj_Close")
-    private float Adj_Close;
-    @Column(name="Volume")
-    private float Volume;
+    @Column(name="Name")
+    private String name;
+    @Column(name="Sector")
+    private String sector;
+    @Column(name="Price")
+    private float price;
+    @Column(name="Price/Earning")
+    private float price_earning;
+    @Column(name="Earning/Share")
+    private float earning_share;
+    @Column(name="52 Week High")
+    private float weekHigh52;
+    @Column(name="52 Week Low")
+    private float weekLow52;
 
-    public Date getDate() {
-        return date;
+    public String getSymbol() {
+        return symbol;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public float getOpen() {
-        return Open;
+    public String getName() {
+        return name;
     }
 
-    public void setOpen(float open) {
-        Open = open;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public float getHigh() {
-        return High;
+    public String getSector() {
+        return sector;
     }
 
-    public void setHigh(float high) {
-        High = high;
+    public void setSector(String sector) {
+        this.sector = sector;
     }
 
-    public float getLow() {
-        return Low;
+    public float getPrice() {
+        return price;
     }
 
-    public void setLow(float low) {
-        Low = low;
+    public void setPrice(float price) {
+        this.price = price;
     }
 
-    public float getClose() {
-        return Close;
+    public float getPrice_earning() {
+        return price_earning;
     }
 
-    public void setClose(float close) {
-        Close = close;
+    public void setPrice_earning(float price_earning) {
+        this.price_earning = price_earning;
     }
 
-    public float getAdj_Close() {
-        return Adj_Close;
+    public float getEarning_share() {
+        return earning_share;
     }
 
-    public void setAdj_Close(float adj_Close) {
-        Adj_Close = adj_Close;
+    public void setEarning_share(float earning_share) {
+        this.earning_share = earning_share;
     }
 
-    public float getVolume() {
-        return Volume;
+    public float getWeekHigh52() {
+        return weekHigh52;
     }
 
-    public void setVolume(float volume) {
-        Volume = volume;
+    public void setWeekHigh52(float weekHigh52) {
+        this.weekHigh52 = weekHigh52;
+    }
+
+    public float getWeekLow52() {
+        return weekLow52;
+    }
+
+    public void setWeekLow52(float weekLow52) {
+        this.weekLow52 = weekLow52;
     }
 }

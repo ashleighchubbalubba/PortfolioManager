@@ -10,16 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/movies")
+@RequestMapping("/stocks")
 public class StockController {
 
     @Autowired
     private StockService stockService;
 
-
     @GetMapping
     public Collection<Stocks> getStocks() {
-        return stockService.getAllStocks();
+        return stockService.getAllSymbols();
     }
 
 }

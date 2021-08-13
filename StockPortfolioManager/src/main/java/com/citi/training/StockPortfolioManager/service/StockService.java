@@ -4,5 +4,5 @@ import StockPortfolioManager.src.main.java.com.citi.training.StockPortfolioManag
 import java.util.Collection;
 
 public interface StockService {
-    Collection<Stocks> getAllStocks();
+    Collection<Stocks> getAllSymbols();
 }
