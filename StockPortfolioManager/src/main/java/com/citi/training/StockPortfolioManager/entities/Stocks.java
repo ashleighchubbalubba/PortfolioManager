@@ -24,10 +24,23 @@ public class Stocks implements Serializable {
     private float price_earning;
     @Column(name="Earning/Share")
     private float earning_share;
+
+    public Stocks(String symbol, String name, String sector, float price, float price_earning, float earning_share, float weekHigh52, float weekLow52) {
+        this.symbol = symbol;
+        this.name = name;
+        this.sector = sector;
+        this.price = price;
+        this.price_earning = price_earning;
+        this.earning_share = earning_share;
+        this.weekHigh52 = weekHigh52;
+        this.weekLow52 = weekLow52;
+    }
+
     @Column(name="52 Week High")
     private float weekHigh52;
     @Column(name="52 Week Low")
     private float weekLow52;
+
 
     public String getSymbol() {
         return symbol;
