@@ -20,10 +20,13 @@ public class Stocks implements Serializable {
     private String sector;
     @Column(name="Price")
     private float price;
-    @Column(name="Price/Earning")
+    @Column(name="Earnings")
     private float price_earning;
-    @Column(name="Earning/Share")
+    @Column(name="Share")
     private float earning_share;
+    public Stocks(){
+
+    }
 
     public Stocks(String symbol, String name, String sector, float price, float price_earning, float earning_share, float weekHigh52, float weekLow52) {
         this.symbol = symbol;
@@ -36,9 +39,9 @@ public class Stocks implements Serializable {
         this.weekLow52 = weekLow52;
     }
 
-    @Column(name="52 Week High")
+    @Column(name="High")
     private float weekHigh52;
-    @Column(name="52 Week Low")
+    @Column(name="Low")
     private float weekLow52;
 
 
