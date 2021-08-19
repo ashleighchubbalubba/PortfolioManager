@@ -17,4 +17,21 @@ public class StockServiceImpl implements StockService {
         return stockRepository.findAll();
     }
 
+    @Override
+    public Stocks findBySymbol(String symbol){
+        return stockRepository.findBySymbol(symbol);
+    }
+
+    @Override
+    public Stocks save(Stocks stock) {return stockRepository.save(stock);}
+
+    @Override
+    public void deleteBySymbol(String symbol) {stockRepository.deleteBySymbol(symbol);}
+
+    @Override
+    public Stocks findTop5Gainers(){ return stockRepository.findTop5ByOrderByEarningsAsc(); }
+
+    @Override
+    public Stocks findTop5Losers(){ return stockRepository.findTop5ByOrderByEarningsDesc(); }
+
 }

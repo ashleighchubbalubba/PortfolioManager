@@ -11,9 +11,10 @@ public class Stocks implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+
+    //attributes
     @Column(name="Symbol")
     private String symbol;
-
     @Column(name="Name")
     private String name;
     @Column(name="Sector")
@@ -21,29 +22,29 @@ public class Stocks implements Serializable {
     @Column(name="Price")
     private float price;
     @Column(name="Earnings")
-    private float price_earning;
+    private float earnings;
     @Column(name="Share")
-    private float earning_share;
+    private float share;
+    @Column(name="High")
+    private float high;
+    @Column(name="Low")
+    private float low;
+
+    //default constructor
     public Stocks(){
 
     }
 
-    public Stocks(String symbol, String name, String sector, float price, float price_earning, float earning_share, float weekHigh52, float weekLow52) {
+    public Stocks(String symbol, String name, String sector, float price, float earnings, float share, float high, float low) {
         this.symbol = symbol;
         this.name = name;
         this.sector = sector;
         this.price = price;
-        this.price_earning = price_earning;
-        this.earning_share = earning_share;
-        this.weekHigh52 = weekHigh52;
-        this.weekLow52 = weekLow52;
+        this.earnings = earnings;
+        this.share = share;
+        this.high = high;
+        this.low = low;
     }
-
-    @Column(name="High")
-    private float weekHigh52;
-    @Column(name="Low")
-    private float weekLow52;
-
 
     public String getSymbol() {
         return symbol;
@@ -77,35 +78,35 @@ public class Stocks implements Serializable {
         this.price = price;
     }
 
-    public float getPrice_earning() {
-        return price_earning;
+    public float getEarnings() {
+        return earnings;
     }
 
-    public void setPrice_earning(float price_earning) {
-        this.price_earning = price_earning;
+    public void setEarnings(float earnings) {
+        this.earnings = earnings;
     }
 
-    public float getEarning_share() {
-        return earning_share;
+    public float getShare() {
+        return share;
     }
 
-    public void setEarning_share(float earning_share) {
-        this.earning_share = earning_share;
+    public void setShare(float share) {
+        this.share = share;
     }
 
-    public float getWeekHigh52() {
-        return weekHigh52;
+    public float getHigh() {
+        return high;
     }
 
-    public void setWeekHigh52(float weekHigh52) {
-        this.weekHigh52 = weekHigh52;
+    public void setHigh(float high) {
+        this.high = high;
     }
 
-    public float getWeekLow52() {
-        return weekLow52;
+    public float getLow() {
+        return low;
     }
 
-    public void setWeekLow52(float weekLow52) {
-        this.weekLow52 = weekLow52;
+    public void setLow(float low) {
+        this.low = low;
     }
 }

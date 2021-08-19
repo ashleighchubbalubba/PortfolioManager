@@ -6,26 +6,64 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
-@RequestMapping("/stocks")
 public class StockController {
-
-////    private static Map<String, Stocks> stocks = new HashMap<String, Stocks>();
-//    static {
-//        stocks.put("ABC", new Stocks("APPL", "Apple", "FRUIT", 399.99F, 1.34F, 155.22F, 2.45F,34.33F));
-//    }
-
 
     @Autowired
     private StockService stockService;
 
+    //get list of all stocks
+    @RequestMapping("/getAll")
     @GetMapping
     public Collection<Stocks> getStocks() {
         return stockService.getAllSymbols();
     }
+
+    //get stock by symbol
+    @RequestMapping("/findBySymbol")
+    @GetMapping(value="/{symbol}")
+    public Stocks findBySym(@PathVariable("symbol") String symbol) {
+        return stockService.findBySymbol(symbol);
+    }
+
+    //add stock to a database
+    @PostMapping("/postStock")
+    public Stocks newStock(@RequestBody Stocks newStock){
+        return stockService.save(newStock);
+    }
+
+    //delete stock
+    @DeleteMapping("/deleteStock")
+    public void deleteStock(@PathVariable("symbol") String symbol) {
+        stockService.deleteBySymbol(symbol);
+    }
+
+    //top stock (by earning)
+    @Autowired
+    public Stocks findTop5Gainers(){
+        return stockService.findTop5Gainers();
+    }
+
+    //bottom stock (by earning)
+    @Autowired
+    public Stocks findTop5Losers(){
+        return stockService.findTop5Losers();
+    }
+
+
+
+//    //get top 5 earnings for stock
+//    @RequestMapping("/top5gains")
+//    @GetMapping
+//    public Collection<Stocks> top5Gains(){
+//        return stockService.getTop5();
+//    }
+
+//    @RequestMapping(value = "/stocks", method = RequestMethod.GET)
+//    public Collection<Stocks> getStocks() {
+//        return stocks.values();
+//    }
 
 //    @PutMapping
 //    public void addStock(@RequestBody Stocks s) {
