@@ -1,4 +1,4 @@
-package StockPortfolioManager.src.main.java.com.citi.training.StockPortfolioManager.entities;
+package com.citi.training.StockPortfolioManager.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
