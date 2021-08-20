@@ -8,6 +8,6 @@ public interface StockService {
     Stocks findBySymbol(String symbol);
     Stocks save(Stocks newStock);
     void deleteBySymbol(String symbol);
-    Stocks findTop5Gainers();
-    Stocks findTop5Losers();
+    Collection<Stocks> findTop5Gainers();
+    Collection<Stocks> findTop5Losers();
 }

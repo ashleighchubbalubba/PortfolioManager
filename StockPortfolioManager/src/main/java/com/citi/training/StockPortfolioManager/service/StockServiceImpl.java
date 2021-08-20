@@ -29,9 +29,9 @@ public class StockServiceImpl implements StockService {
     public void deleteBySymbol(String symbol) {stockRepository.deleteBySymbol(symbol);}
 
     @Override
-    public Stocks findTop5Gainers(){ return stockRepository.findTop5ByOrderByEarningsAsc(); }
+    public Collection<Stocks> findTop5Gainers(){ return stockRepository.findTop5ByOrderByEarningsAsc(); }
 
     @Override
-    public Stocks findTop5Losers(){ return stockRepository.findTop5ByOrderByEarningsDesc(); }
+    public Collection<Stocks> findTop5Losers(){ return stockRepository.findTop5ByOrderByEarningsDesc(); }
 
 }

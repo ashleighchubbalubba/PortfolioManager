@@ -40,18 +40,16 @@ public class StockController {
     }
 
     //top stock (by earning)
-    @Autowired
-    public Stocks findTop5Gainers(){
+    @GetMapping("/gettopfive")
+    public Collection<Stocks> findTopFive() {
         return stockService.findTop5Gainers();
     }
 
     //bottom stock (by earning)
-    @Autowired
-    public Stocks findTop5Losers(){
+    @GetMapping("/getbottomfive")
+    public Collection<Stocks> findBottomFive() {
         return stockService.findTop5Losers();
     }
-
-
 
 //    //get top 5 earnings for stock
 //    @RequestMapping("/top5gains")

@@ -11,6 +11,6 @@ public interface StockRepository extends JpaRepository<Stocks, Integer>, Reposit
     Stocks findBySymbol(String symbol);
     Stocks save(Stocks stock);
     void deleteBySymbol(String symbol);
-    Stocks findTop5ByOrderByEarningsAsc();
-    Stocks findTop5ByOrderByEarningsDesc();
+    Collection<Stocks> findTop5ByOrderByEarningsAsc();
+    Collection<Stocks> findTop5ByOrderByEarningsDesc();
 }
