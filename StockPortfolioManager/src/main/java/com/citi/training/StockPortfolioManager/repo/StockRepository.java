@@ -1,16 +1,10 @@
 package com.citi.training.StockPortfolioManager.repo;
 
-import java.util.Collection;
 import com.citi.training.StockPortfolioManager.entities.Stocks;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.Repository;
 
-public interface StockRepository extends JpaRepository<Stocks, Integer>, Repository<Stocks, Integer> {
-//    Collection<Stocks> findByTitle(String title);
+public interface StockRepository extends JpaRepository<Stocks, Integer>, Repository<Stocks, Integer>
+{
 
-    Stocks findBySymbol(String symbol);
-    Stocks save(Stocks stock);
-    void deleteBySymbol(String symbol);
-    Collection<Stocks> findTop5ByOrderByEarningsAsc();
-    Collection<Stocks> findTop5ByOrderByEarningsDesc();
 }

@@ -9,34 +9,32 @@ import java.util.Collection;
 
 @RestController
 public class StockController {
-
     @Autowired
     private StockService stockService;
 
     //get list of all stocks
-    @RequestMapping("/getAll")
+    @RequestMapping("/getAllStocks")
     @GetMapping
-    public Collection<Stocks> getStocks() {
-        return stockService.getAllSymbols();
+    public Collection<Stocks> getAllTransactions() {
+        return stockService.getAllTransactions();
     }
 
-    //get stock by symbol
-    @RequestMapping("/findBySymbol")
-    @GetMapping(value="/{symbol}")
-    public Stocks findBySym(@PathVariable("symbol") String symbol) {
-        return stockService.findBySymbol(symbol);
+    //get stock by transaction #
+    @GetMapping(value="/getStock/{id}")
+    public Stocks getTransaction(@PathVariable("id") int id) {
+        return stockService.getTransaction(id);
     }
 
     //add stock to a database
     @PostMapping("/postStock")
-    public Stocks newStock(@RequestBody Stocks newStock){
-        return stockService.save(newStock);
+    public Stocks addTransaction(@RequestBody Stocks stock){
+        return stockService.addTransaction(stock);
     }
 
     //delete stock
-    @DeleteMapping("/deleteStock")
-    public void deleteStock(@PathVariable("symbol") String symbol) {
-        stockService.deleteBySymbol(symbol);
+    @DeleteMapping("/deleteStock/{id}")
+    public void sellStock(@PathVariable("symbol") int id) {
+        stockService.sellStock(id);
     }
 
     //top stock (by earning)
