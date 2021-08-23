@@ -2,72 +2,65 @@ package com.citi.training.StockPortfolioManager.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.DateTimeException;
 import java.util.Date;
 
 @Entity
-@Table(name="sandp")
+@Table(name="stocks")
 public class Stocks implements Serializable {
-
+    //attributes
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="Transaction")
+    private int transaction;
 
-    //attributes
-    @Column(name="Symbol")
-    private String symbol;
-    @Column(name="Name")
-    private String name;
-    @Column(name="Sector")
-    private String sector;
+    @Column(name="Ticker")
+    private String ticker;
+
+    @Column(name="Date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
+
     @Column(name="Price")
     private float price;
-    @Column(name="Earnings")
-    private float earnings;
-    @Column(name="Share")
-    private float share;
-    @Column(name="High")
-    private float high;
-    @Column(name="Low")
-    private float low;
+
+    @Column(name="Amount")
+    private float amount;
 
     //default constructor
     public Stocks(){
 
     }
 
-    public Stocks(String symbol, String name, String sector, float price, float earnings, float share, float high, float low) {
-        this.symbol = symbol;
-        this.name = name;
-        this.sector = sector;
+    public Stocks(int transaction, String ticker, Date date, float price, float amount) {
+        this.transaction = transaction;
+        this.ticker = ticker;
+        this.date = date;
         this.price = price;
-        this.earnings = earnings;
-        this.share = share;
-        this.high = high;
-        this.low = low;
+        this.amount = amount;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public int getTransaction() {
+        return transaction;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setTransaction(int transaction) {
+        this.transaction = transaction;
     }
 
-    public String getName() {
-        return name;
+    public String getTicker() {
+        return ticker;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
     }
 
-    public String getSector() {
-        return sector;
+    public Date getDate() {
+        return date;
     }
 
-    public void setSector(String sector) {
-        this.sector = sector;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public float getPrice() {
@@ -78,35 +71,11 @@ public class Stocks implements Serializable {
         this.price = price;
     }
 
-    public float getEarnings() {
-        return earnings;
+    public float getAmount() {
+        return amount;
     }
 
-    public void setEarnings(float earnings) {
-        this.earnings = earnings;
-    }
-
-    public float getShare() {
-        return share;
-    }
-
-    public void setShare(float share) {
-        this.share = share;
-    }
-
-    public float getHigh() {
-        return high;
-    }
-
-    public void setHigh(float high) {
-        this.high = high;
-    }
-
-    public float getLow() {
-        return low;
-    }
-
-    public void setLow(float low) {
-        this.low = low;
+    public void setAmount(float amount) {
+        this.amount = amount;
     }
 }
